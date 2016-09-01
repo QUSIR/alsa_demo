@@ -20,3 +20,26 @@
 
 
 更詳細的可以查看源碼目錄下的INSTALL文檔
+
+
+#使用
+
+alsa的PCM设置有两种方式
+
+一种是以周期的方式设定
+例子：
+
+[Linuxvoicenew](/Linuxvoicenew.c)
+
+
+另一种是以buffer缓冲区大小设定的
+
+例子：
+
+[alsa_dev](/alsa_dev.c)
+
+对应关系如下图
+
+![ALSA缓冲区拆分](/ALSA.jpg)
+
+buffer总的缓冲区的大小，buffer下面分为几个周期，一个周期下面有几帧
