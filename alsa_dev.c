@@ -86,7 +86,7 @@ snd_pcm_t * open_capture (char *name,unsigned int set_rate, int channel, int bit
     /* Set the sound device buffer size and latency */
 
 	tmp_buf_size = 4096;//(set_rate / 1000) * input_latency_ms;
-
+	//设置缓冲区
 	snd_pcm_hw_params_set_buffer_size_near (ca_pcm, params,
 						&tmp_buf_size);
 
@@ -94,8 +94,9 @@ snd_pcm_t * open_capture (char *name,unsigned int set_rate, int channel, int bit
 
     /* Set period size to samples_per_frame frames. */
     //ca_frames = (snd_pcm_uframes_t) samples_per_frame /channel;
-
+	
     tmp_period_size = tmp_buf_size/8;//ca_frames;
+	//设置周期
     snd_pcm_hw_params_set_period_size_near (ca_pcm, params,
 					    &tmp_period_size, NULL);
 
